@@ -1,5 +1,5 @@
 let request = new XMLHttpRequest();
-request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG");
+request.open("GET",` http://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG`);
 request.send();
 
 request.onreadystatechange = function(){
@@ -36,13 +36,12 @@ request.onreadystatechange = function(){
           s = checkTime(s);
           document.getElementById("date").innerHTML =  h + ":" + m + ":" + s;
           timeUntil()
-          setTimeout(startTime, 1000);
+          timeout =setTimeout(startTime, 1000);
         }
         startTime()
 
       function timeUntil(){
-        let arr = []
-        arr = [timings.Fajr , timings.Dhuhr , timings.Asr , timings.Maghrib , timings.Isha]
+        let arr = [timings.Fajr , timings.Dhuhr , timings.Asr , timings.Maghrib , timings.Isha]
         for(let ar in arr){
         let hours = parseInt(arr[ar]);
         let mins = arr[ar][3] + arr[ar][4];
@@ -73,7 +72,6 @@ request.onreadystatechange = function(){
   }
 };
 
-
 let cities = ["الاسكندرية","القاهرة","دمنهور"];
 for(let city of cities){
       let content = `<option>${city}</option>`
@@ -81,17 +79,19 @@ for(let city of cities){
 }
 
 document.querySelector(".city-choose select").addEventListener("change",function(){
-
   switch(this.value){
     case "الاسكندرية" : 
+      clearInterval(timeout);
       request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG");
       document.getElementById("city-title").innerHTML = "الاسكندرية";
       break;
     case "القاهرة" :
+      clearInterval(timeout);
       request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Cairo&country=EG");
       document.getElementById("city-title").innerHTML = "القاهرة";
       break;
     case "دمنهور" :
+      clearInterval(timeout);
       request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Damanhour&country=EG");
       document.getElementById("city-title").innerHTML = "دمنهور";
       break;
