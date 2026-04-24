@@ -56,6 +56,15 @@ request.onreadystatechange = function(){
         }  
 
         let next = Math.min(...arr);
+
+        switch(arr.indexOf(next)){
+          case 0 : document.getElementById("next-name").innerHTML = "تبقى على الفجر"; break;
+          case 1 : document.getElementById("next-name").innerHTML = "تبقى على الظهر"; break;
+          case 2 : document.getElementById("next-name").innerHTML = "تبقى على العصر"; break;
+          case 3 : document.getElementById("next-name").innerHTML = "تبقى على المغرب"; break;
+          case 4 : document.getElementById("next-name").innerHTML = "تبقى على العشاء" ; break;
+        }
+        
         let hleft = Math.floor(next / 3600000);
         let mleft = Math.floor((next % (1000*3600)) / (1000*60))+1;
         if (mleft < 10){mleft = "0"+mleft}
