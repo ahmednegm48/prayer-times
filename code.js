@@ -1,5 +1,5 @@
 let request = new XMLHttpRequest();
-request.open("GET",` http://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG`);
+request.open("GET",` https://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG`);
 request.send();
 
 request.onreadystatechange = function(){
