@@ -91,17 +91,17 @@ document.querySelector(".city-choose select").addEventListener("change",function
   switch(this.value){
     case "الاسكندرية" : 
       clearInterval(timeout);
-      request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG");
+      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG");
       document.getElementById("city-title").innerHTML = "الاسكندرية";
       break;
     case "القاهرة" :
       clearInterval(timeout);
-      request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Cairo&country=EG");
+      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=EG");
       document.getElementById("city-title").innerHTML = "القاهرة";
       break;
     case "دمنهور" :
       clearInterval(timeout);
-      request.open("GET"," http://api.aladhan.com/v1/timingsByCity?city=Damanhour&country=EG");
+      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Damanhour&country=EG");
       document.getElementById("city-title").innerHTML = "دمنهور";
       break;
   }
