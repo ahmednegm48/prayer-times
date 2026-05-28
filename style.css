@@ -9,6 +9,7 @@
 body{
     direction: rtl;
     margin: 10px 0;
+    padding: 10px 0;
     background-color: #CAE9FF;
     color: #1B4965; 
 }
