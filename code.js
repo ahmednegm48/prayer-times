@@ -1,6 +1,32 @@
+let lon, lat;
+
+function getLocation() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      return reject("Geolocation is not supported by this browser.");
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        lon = position.coords.longitude;
+        lat = position.coords.latitude;
+        resolve({ lon, lat });
+      },
+      () => reject("Sorry, no position available.")
+    );
+  });
+}
+
+(async () => {
+  try {
+    await getLocation();
+  } catch (e) {
+    console.log(e);
+  }
+  request.open("GET",` https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}`);
+  request.send();
+})();
+
 let request = new XMLHttpRequest();
-request.open("GET",` https://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG`);
-request.send();
 
 request.onreadystatechange = function(){
     if(this.readyState === 4 && this.status === 200){
@@ -81,29 +107,3 @@ request.onreadystatechange = function(){
   }
 };
 
-let cities = ["الاسكندرية","القاهرة","دمنهور"];
-for(let city of cities){
-      let content = `<option>${city}</option>`
-      document.getElementById("city-select").innerHTML += content
-}
-
-document.querySelector(".city-choose select").addEventListener("change",function(){
-  switch(this.value){
-    case "الاسكندرية" : 
-      clearInterval(timeout);
-      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Alexandria&country=EG");
-      document.getElementById("city-title").innerHTML = "الاسكندرية";
-      break;
-    case "القاهرة" :
-      clearInterval(timeout);
-      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=EG");
-      document.getElementById("city-title").innerHTML = "القاهرة";
-      break;
-    case "دمنهور" :
-      clearInterval(timeout);
-      request.open("GET"," https://api.aladhan.com/v1/timingsByCity?city=Damanhour&country=EG");
-      document.getElementById("city-title").innerHTML = "دمنهور";
-      break;
-  }
-  request.send();
-}); 

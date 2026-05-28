@@ -8,6 +8,7 @@
 }
 body{
     direction: rtl;
+    margin: 10px 0;
     background-color: #CAE9FF;
     color: #1B4965; 
 }
@@ -20,12 +21,8 @@ body{
     max-width: 1170px;
 }
 .head{
-    padding-bottom: 20px;
+    padding: 20px 0;
     border-bottom: #1B4965 1px solid;
-}
-.head .city-name h1{
-    text-align: center;
-    margin-bottom: 10px;
 }
 .head .date-details{
     display: flex;
@@ -63,28 +60,6 @@ body{
 .card p{
     min-height: 100px;
 }
-.city-choose{
-    position: relative;
-    margin-top: 100px;
-}
-.city-choose select{
-    position: absolute;
-    background-color: #B5D5EC;
-    color: #1B4965;
-    border-radius: 50px;
-    width: 300px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 25px;
-}
-.city-choose option{
-    background-color: #B5D5EC;
-    color: #1B4965;
-    font-size: 25px;
-}
-
 @media (max-width: 700px){
     *{
         font-size: 30px;
@@ -94,9 +69,6 @@ body{
     }
     .head{
         padding-bottom: 5px;
-    }
-    .head .city-name h1{
-        margin-bottom: 0;
     }
     .head .date-details{
         flex-direction: column;
@@ -120,12 +92,5 @@ body{
     .next{
     width: 70%;
     margin-top: 100px;
-    }
-    .city-choose {
-        margin-top: 10px;
-        margin-bottom: 90px;
-    }
-    .city-choose select {
-        width: 80%;
     }
 }
