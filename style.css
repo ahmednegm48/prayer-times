@@ -25,6 +25,10 @@ body{
     padding: 20px 0;
     border-bottom: #1B4965 1px solid;
 }
+.sunnah{
+    padding-top: 50px;
+    font-size: 30px;
+}
 .head .date-details{
     display: flex;
     justify-content: space-between;

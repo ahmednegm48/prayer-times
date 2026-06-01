@@ -82,15 +82,52 @@ request.onreadystatechange = function(){
         }  
 
         let next = Math.min(...arr);
-
+        let prayer,before,after,previous;
+        const nextName = document.getElementById("next-name");
+        const sunnah = document.querySelector(".sunnah");
         switch(arr.indexOf(next)){
-          case 0 : document.getElementById("next-name").innerHTML = "تبقى على الفجر"; break;
-          case 1 : document.getElementById("next-name").innerHTML = "تبقى على الظهر"; break;
-          case 2 : document.getElementById("next-name").innerHTML = "تبقى على العصر"; break;
-          case 3 : document.getElementById("next-name").innerHTML = "تبقى على المغرب"; break;
-          case 4 : document.getElementById("next-name").innerHTML = "تبقى على العشاء" ; break;
+          case 0 : 
+          prayer = "الفجر";
+          previous = "العشاء";
+          before = "لا يوجد";
+          after= "ركعتان";
+          break;
+          case 1 :
+          prayer = "الظهر" ;
+          previous = "الفجر";
+          before = "ركعتان";
+          after = "لا يوجد";
+          break;
+          case 2 : 
+          prayer = "العصر";
+          previous = "الظهر";
+          before = "اربع ركعات";
+          after = "ركعتان";
+          break;
+          case 3 : 
+          prayer = "المغرب";
+          previous = "العصر";
+          before = "لا يوجد";
+          after = "لا يوجد";
+          break;
+          case 4 :
+          prayer = "العشاء" ;
+          previous = "المغرب";
+          before = "لا يوجد";
+          after = "ركعتان";
+          break;
         }
         
+        nextName.innerHTML = "تبقى على " + prayer;
+        if (before === after){
+          sunnah.innerHTML = "لا توجد سنة مؤكدة لصلاة العصر"
+        }else{
+          sunnah.innerHTML = `سنن ${previous}<br>
+          قبل الصلاة  :  ${before}  <br>
+          بعد الصلاة  :  ${after} `
+        }
+
+
         let hleft = Math.floor(next / 3600000);
         let mleft = Math.floor((next % (1000*3600)) / (1000*60))+1;
         if (mleft < 10){mleft = "0"+mleft}
