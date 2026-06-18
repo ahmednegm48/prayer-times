@@ -38,7 +38,8 @@ request.onreadystatechange = function(){
               hours-=12
             }
             mins = time[3] + time[4]
-            document.getElementById(id).innerHTML = hours + ':' +mins};
+            document.getElementById(id).innerHTML = hours + ':' +mins
+          };
         let timings = jsdata.data.timings;
         filler("fagr",timings.Fajr);
         filler("duhr",timings.Dhuhr);
@@ -67,7 +68,7 @@ request.onreadystatechange = function(){
         startTime()
 
       function timeUntil(){
-        let arr = [timings.Fajr , timings.Dhuhr , timings.Asr , timings.Maghrib , timings.Isha]
+        let arr = [timings.Fajr , timings.Sunrise , timings.Dhuhr , timings.Asr , timings.Maghrib , timings.Isha]
         for(let ar in arr){
         let hours = parseInt(arr[ar]);
         let mins = arr[ar][3] + arr[ar][4];
@@ -92,25 +93,31 @@ request.onreadystatechange = function(){
           before = "لا يوجد";
           after= "ركعتان";
           break;
-          case 1 :
+          case 1 : 
+          prayer = "الشروق";
+          previous = "الفجر";
+          before = "ركعتان";
+          after= "لا يوجد";
+          break;
+          case 2 :
           prayer = "الظهر" ;
           previous = "الفجر";
           before = "ركعتان";
           after = "لا يوجد";
           break;
-          case 2 : 
+          case 3 : 
           prayer = "العصر";
           previous = "الظهر";
           before = "اربع ركعات";
           after = "ركعتان";
           break;
-          case 3 : 
+          case 4 : 
           prayer = "المغرب";
           previous = "العصر";
           before = "لا يوجد";
           after = "لا يوجد";
           break;
-          case 4 :
+          case 5 :
           prayer = "العشاء" ;
           previous = "المغرب";
           before = "لا يوجد";
