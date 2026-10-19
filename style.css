@@ -99,3 +99,31 @@ body{
     margin-top: 100px;
     }
 }
+/* skeleton loading (shown until the API data arrives) */
+.loading .skeleton{
+    color: transparent;
+    min-height: 1.2em;
+    min-width: 4em;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #a3c7e2 25%, #d9eefc 50%, #a3c7e2 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+.loading .card .skeleton{
+    width: 60%;
+    margin: 20px auto;
+    min-height: 1.2em;
+}
+.loading .card h2.skeleton{
+    border-bottom: none;
+}
+.loading .sunnah.skeleton{
+    width: 40%;
+    min-height: 3em;
+    margin-top: 50px;
+    padding-top: 0;
+}
+@keyframes shimmer{
+    from{ background-position: 200% 0; }
+    to{ background-position: -200% 0; }
+}

@@ -66,6 +66,7 @@ request.onreadystatechange = function(){
           timeout =setTimeout(startTime, 1000);
         }
         startTime()
+        document.body.classList.remove("loading");
 
       function timeUntil(){
         let arr = [timings.Fajr , timings.Sunrise , timings.Dhuhr , timings.Asr , timings.Maghrib , timings.Isha]
